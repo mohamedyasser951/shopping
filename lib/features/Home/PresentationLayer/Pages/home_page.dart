@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping/features/Home/PresentationLayer/Pages/prodcut_details_page.dart';
 import 'package:shopping/features/Home/PresentationLayer/Widgets/product_item.dart';
 import 'package:shopping/features/Home/PresentationLayer/bloc/home_bloc_bloc.dart';
 
@@ -61,8 +62,18 @@ class _HomePageState extends State<HomePage> {
                         ? const Align(
                             alignment: Alignment.bottomCenter,
                             child: CircularProgressIndicator())
-                        : ProductItem(
-                            products: state.products[index],
+                        : InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ProductDetails(
+                                        product: state.products[index]),
+                                  ));
+                            },
+                            child: ProductItem(
+                              products: state.products[index],
+                            ),
                           );
                   });
             case Status.error:

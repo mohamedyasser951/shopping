@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping/Config/Theme/theme.dart';
 import 'package:shopping/features/Layout/PresentationLayer/LayoutCubit/layout_cubit.dart';
 import 'package:shopping/features/Layout/PresentationLayer/Pages/app_layout.dart';
 import 'package:shopping/bloc_observer.dart';
@@ -18,10 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme:AppTheme.lightTheme,
       home: BlocProvider(
         create: (context) => LayoutCubit(),
         child: const LayoutPage(),

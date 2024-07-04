@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping/Config/constant/app_colors.dart';
 import 'package:shopping/Config/widgets/custom_button.dart';
 import 'package:shopping/Config/widgets/custom_text_field.dart';
 import 'package:shopping/features/Auth/features/login/data/datasources/login_data_source.dart';
@@ -11,6 +12,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -23,14 +25,20 @@ class LoginPage extends StatelessWidget {
               ),
               Text(
                 "Login",
-                style: Theme.of(context).textTheme.displaySmall,
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
               const SizedBox(
                 height: 10.0,
               ),
               Text(
                 "Welcome Back to the app",
-                style: Theme.of(context).textTheme.bodyLarge,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(color: Colors.grey[700]),
+              ),
+              const SizedBox(
+                height: 12.0,
               ),
               Text(
                 "Email Address",
@@ -53,8 +61,10 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       "Forget Password?",
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: const Color(0xff121D43)),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyLarge!
+                          .copyWith(color: const Color(0xff121D43)),
                     ),
                   )
                 ],
@@ -68,19 +78,22 @@ class LoginPage extends StatelessWidget {
                 height: 20.0,
               ),
               CustomButton(
-                color: const Color(0xff121D43),
+                color: AppColors.primaryColor,
                 width: double.infinity,
                 onPressed: () {
                   LoginDataSource().userLogin(name: "", password: "");
                 },
                 widget: Text(
                   "Login",
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.white),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(color: Colors.white),
                 ),
               ),
-              const Divider(
-                height: 48,
-              ),
+              // const Divider(
+              //   height: 48,
+              // ),
               Center(
                 child: TextButton(
                   onPressed: () {},
@@ -89,7 +102,7 @@ class LoginPage extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .bodyLarge!
-                        .copyWith(color: const Color(0xff121D43)),
+                        .copyWith(color: AppColors.primaryColor),
                   ),
                 ),
               )
