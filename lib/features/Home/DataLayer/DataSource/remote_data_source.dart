@@ -8,7 +8,6 @@ class RemoteDataSource {
         Uri.parse("https://dummyjson.com/products?limit$limit&skip=$step"));
     if (response.statusCode == 200) {
       var decodedData = json.decode(response.body);
-      print(decodedData);
       return ProductModel.fromJson(decodedData);
     } else {
       throw Exception("Something went Wrong");

@@ -12,7 +12,7 @@ class ProductDetails extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+    Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Details")),
       body: SingleChildScrollView(
@@ -27,6 +27,7 @@ class ProductDetails extends StatelessWidget {
                   Card(
                     child: CarouselSlider.builder(
                       itemCount: product.images!.length,
+                      
                       options: CarouselOptions(
                         autoPlay: true,
                         height: 200,

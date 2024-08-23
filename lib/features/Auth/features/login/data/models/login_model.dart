@@ -1,27 +1,16 @@
-import 'package:equatable/equatable.dart';
+import 'package:shopping/features/Auth/features/login/domain/entities/login_entity.dart';
 
-class LoginModel extends Equatable {
-  final int? id;
-  final String? username;
-  final String? email;
-  final String? firstName;
-  final String? lastName;
-  final String? gender;
-  final String? image;
-  final String? token;
-  final String? refreshToken;
-
-  const LoginModel({
-    this.id,
-    this.username,
-    this.email,
-    this.firstName,
-    this.lastName,
-    this.gender,
-    this.image,
-    this.token,
-    this.refreshToken,
-  });
+class LoginModel extends LoginEntity {
+  const LoginModel(
+      {super.id,
+      super.username,
+      super.email,
+      super.firstName,
+      super.lastName,
+      super.gender,
+      super.image,
+      super.token,
+      super.refreshToken});
 
   factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
         id: json['id'] as int?,
@@ -46,19 +35,4 @@ class LoginModel extends Equatable {
         'token': token,
         'refreshToken': refreshToken,
       };
-
-  @override
-  List<Object?> get props {
-    return [
-      id,
-      username,
-      email,
-      firstName,
-      lastName,
-      gender,
-      image,
-      token,
-      refreshToken,
-    ];
-  }
 }
