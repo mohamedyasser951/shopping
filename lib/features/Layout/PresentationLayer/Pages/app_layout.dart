@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping/Config/constant/app_colors.dart';
 import 'package:shopping/features/Home/PresentationLayer/Pages/home_page.dart';
 import 'package:shopping/features/Layout/PresentationLayer/LayoutCubit/layout_cubit.dart';
 import 'package:shopping/features/Layout/PresentationLayer/LayoutCubit/layout_states.dart';
 
 List<Widget> pages = [
   const HomePage(),
-  const HomePage(),
+  const Scaffold(
+    backgroundColor: Colors.blue,
+  ),
   const Scaffold(
     backgroundColor: Colors.amber,
+  ),
+  const Scaffold(
+    backgroundColor: Colors.red,
   ),
 ];
 
@@ -17,9 +23,10 @@ class LayoutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LayoutCubit cubit = context.read<LayoutCubit>();
     return BlocBuilder<LayoutCubit, LayoutStates>(
       builder: (context, state) {
+        LayoutCubit cubit = context.read<LayoutCubit>();
+
         return Scaffold(
           body: pages[cubit.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
@@ -27,13 +34,28 @@ class LayoutPage extends StatelessWidget {
               onTap: (index) {
                 cubit.changeBottomNavIndex(newIndex: index);
               },
-              items: const [
+              items: [
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.home), label: 'Home'),
+                    icon: Icon(
+                      Icons.home,
+                      color: AppColors.primaryColor,
+                    ),
+                    label: 'Home'),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.favorite), label: "Favorite"),
+                    icon: Icon(
+                      Icons.shopping_bag_outlined,
+                      color: AppColors.primaryColor,
+                    ),
+                    label: "cart"),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.shopping_bag_outlined), label: "cart"),
+                    icon: Icon(Icons.favorite, color: AppColors.primaryColor),
+                    label: "Favorite"),
+                BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.person,
+                      color: AppColors.primaryColor,
+                    ),
+                    label: "person"),
               ]),
         );
       },
