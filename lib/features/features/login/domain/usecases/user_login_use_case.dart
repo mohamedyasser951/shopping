@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:shopping/Config/Error/failures.dart';
-import 'package:shopping/features/Auth/features/login/domain/entities/login_entity.dart';
-import 'package:shopping/features/Auth/features/login/domain/repositories/login_repository.dart';
+import 'package:shopping/features/features/login/domain/entities/login_entity.dart';
+import 'package:shopping/features/features/login/domain/repositories/login_repository.dart';
 
 class UserLoginUseCase {
   LoginRepository loginRepository;

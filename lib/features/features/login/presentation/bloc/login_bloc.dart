@@ -3,8 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:shopping/Config/Error/failures.dart';
 import 'package:shopping/Config/Strings/error_messages.dart';
 
-import 'package:shopping/features/Auth/features/login/domain/entities/login_entity.dart';
-import 'package:shopping/features/Auth/features/login/domain/repositories/login_repository.dart';
+import 'package:shopping/features/features/login/domain/entities/login_entity.dart';
+import 'package:shopping/features/features/login/domain/repositories/login_repository.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';

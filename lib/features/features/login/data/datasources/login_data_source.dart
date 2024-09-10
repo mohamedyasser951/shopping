@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:shopping/Config/Error/exception.dart';
-import 'package:shopping/features/Auth/features/login/data/models/login_model.dart';
+import 'package:shopping/features/features/login/data/models/login_model.dart';
 import 'package:http/http.dart' as http;
 
 class LoginDataSource {

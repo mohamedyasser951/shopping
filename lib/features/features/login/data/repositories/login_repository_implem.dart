@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:shopping/Config/Error/exception.dart';
 import 'package:shopping/Config/Error/failures.dart';
-import 'package:shopping/features/Auth/features/login/data/datasources/login_data_source.dart';
-import 'package:shopping/features/Auth/features/login/domain/entities/login_entity.dart';
-import 'package:shopping/features/Auth/features/login/domain/repositories/login_repository.dart';
+import 'package:shopping/features/features/login/data/datasources/login_data_source.dart';
+import 'package:shopping/features/features/login/domain/entities/login_entity.dart';
+import 'package:shopping/features/features/login/domain/repositories/login_repository.dart';
 
 class LoginRepositoryImplement implements LoginRepository {
   LoginDataSource loginDataSource;

@@ -1,4 +1,4 @@
-import 'package:shopping/features/Auth/features/login/domain/entities/login_entity.dart';
+import 'package:shopping/features/features/login/domain/entities/login_entity.dart';
 
 class LoginModel extends LoginEntity {
   const LoginModel(

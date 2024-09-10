@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shopping/Config/HiveManager/hive_manager.dart';
 import 'package:shopping/Config/constant/app_colors.dart';
+import 'package:shopping/Config/constant/app_strings.dart';
 import 'package:shopping/Config/widgets/custom_button.dart';
 import 'package:shopping/Config/widgets/custom_text_field.dart';
-import 'package:shopping/features/Auth/features/login/presentation/bloc/login_bloc.dart';
-import 'package:shopping/features/Layout/PresentationLayer/Pages/app_layout.dart';
+import 'package:shopping/features/features/login/presentation/bloc/login_bloc.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -23,10 +25,10 @@ class LoginPage extends StatelessWidget {
               if (state is LoginSuccess) {
                 ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text("LOGIN SUCCESS")));
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => const LayoutPage()),
-                  (route) => true,
-                );
+                HiveManager.put(AppStrings.loginSuccessKey,
+                    {AppStrings.loginSuccessKey: "true"}).then((val) {
+                  context.go(AppStrings.layoutPagePath);
+                });
               }
               if (state is LoginErrorState) {
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -115,9 +117,6 @@ class LoginPage extends StatelessWidget {
                                 .copyWith(color: Colors.white),
                           ),
                         ),
-                  // const Divider(
-                  //   height: 48,
-                  // ),
                   Center(
                     child: TextButton(
                       onPressed: () {},

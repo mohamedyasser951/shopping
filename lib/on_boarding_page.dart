@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shopping/Config/HiveManager/hive_manager.dart';
 import 'package:shopping/Config/constant/app_colors.dart';
 import 'package:shopping/Config/constant/app_images.dart';
-import 'package:shopping/features/Auth/features/login/presentation/pages/login_page.dart';
+import 'package:shopping/Config/constant/app_strings.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingModel {
@@ -44,11 +46,22 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPagetState extends State<OnBoardingPage> {
   PageController pageController = PageController();
   bool isLast = false;
+
   void submitStateofOnBoarding() async {
+    await HiveManager.put(AppStrings.onBoardingKey, {
+      AppStrings.onBoardingKey: "true",
+    }).then((val) {
+      // print(val);
+      context.go(AppStrings.loginPagePath);
+    });
     // await Hive.box(AppStrings.settingsBox)
     //     .put("onBoarding", true)
     //     .then((value) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
+    // Navigator.push(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) => LoginPage(),
+    //     ));
     // });
   }
 
@@ -137,7 +150,10 @@ class OnBoardingItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Expanded(child: SvgPicture.asset(model.imgPath)),
+        Expanded(
+            child: SvgPicture.asset(
+          model.imgPath,
+        )),
         Text(
           model.title,
           style: Theme.of(context).textTheme.bodyLarge,
