@@ -4,6 +4,7 @@ import 'package:shopping/Config/constant/app_colors.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
+    scaffoldBackgroundColor: AppColors.lightBackgroud,
     cardTheme: const CardTheme(
       color: Colors.white,
     ),
@@ -31,9 +32,9 @@ class AppTheme {
       color: AppColors.grayColor,
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: Colors.white,
-      elevation: 1,
-    ),
+        backgroundColor: Colors.white,
+        elevation: 1,
+        type: BottomNavigationBarType.fixed),
   );
 
   static ThemeData darkTheme = ThemeData(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shopping/Config/constant/app_strings.dart';
-import 'package:shopping/features/features/login/presentation/pages/login_page.dart';
+import 'package:shopping/features/Auth/login/presentation/pages/login_page.dart';
 import 'package:shopping/features/Layout/PresentationLayer/Pages/app_layout.dart';
 import 'package:shopping/on_boarding_page.dart';
 

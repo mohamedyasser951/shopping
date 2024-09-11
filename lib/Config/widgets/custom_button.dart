@@ -11,7 +11,7 @@ class CustomButton extends StatelessWidget {
       required this.widget,
       required this.onPressed,
       this.width = double.infinity,
-      this.color =  Colors.blue});
+      this.color = Colors.blue});
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +19,12 @@ class CustomButton extends StatelessWidget {
       width: width,
       height: 48.0,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            backgroundColor: color,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25))),
-        onPressed: onPressed,
-        child: widget
-      ),
+          style: ElevatedButton.styleFrom(
+              backgroundColor: color,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25))),
+          onPressed: onPressed,
+          child: widget),
     );
   }
 }

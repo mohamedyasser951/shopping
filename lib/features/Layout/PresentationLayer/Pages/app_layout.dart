@@ -4,13 +4,12 @@ import 'package:shopping/Config/constant/app_colors.dart';
 import 'package:shopping/features/Home/PresentationLayer/Pages/home_page.dart';
 import 'package:shopping/features/Layout/PresentationLayer/LayoutCubit/layout_cubit.dart';
 import 'package:shopping/features/Layout/PresentationLayer/LayoutCubit/layout_states.dart';
+import 'package:shopping/features/features/carts/presentation/pages/cart_page.dart';
 import 'package:shopping/features/features/favorites/presentation/pages/favorites_page.dart';
 
 List<Widget> pages = [
   const HomePage(),
-  const Scaffold(
-    backgroundColor: Colors.blue,
-  ),
+  const CartPage(),
   const FavoritesPage(),
   const Scaffold(
     backgroundColor: Colors.red,

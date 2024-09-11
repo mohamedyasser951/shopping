@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping/Config/constant/app_colors.dart';
 import 'package:shopping/features/Home/PresentationLayer/Pages/prodcut_details_page.dart';
 import 'package:shopping/features/Home/PresentationLayer/Widgets/product_item.dart';
 import 'package:shopping/features/Home/PresentationLayer/bloc/home_bloc_bloc.dart';
@@ -40,7 +41,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Posts"),
+        leading: IconButton(
+          icon: Icon(
+            Icons.menu_rounded,
+            color: AppColors.grayColor,
+          ),
+          onPressed: () {},
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.notifications_none_outlined,
+              color: AppColors.grayColor,
+            ),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: BlocBuilder<HomeBloc, HomeStates>(
         builder: (context, state) {
@@ -51,8 +67,9 @@ class _HomePageState extends State<HomePage> {
               );
             case Status.success:
               return GridView.builder(
+                  padding: const EdgeInsets.symmetric(horizontal: 6),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      childAspectRatio: 0.65, crossAxisCount: 2),
+                      childAspectRatio: 0.7, crossAxisCount: 2),
                   controller: scrollController,
                   itemCount: state.hasReashedMax
                       ? state.products.length

@@ -5,10 +5,11 @@ import 'package:shopping/Config/HiveManager/hive_manager.dart';
 import 'package:shopping/Config/Theme/theme.dart';
 import 'package:shopping/Config/constant/app_router.dart';
 import 'package:shopping/Config/constant/app_strings.dart';
-import 'package:shopping/features/features/login/presentation/bloc/login_bloc.dart';
+import 'package:shopping/features/Auth/login/presentation/bloc/login_bloc.dart';
 import 'package:shopping/features/Home/PresentationLayer/bloc/home_bloc_bloc.dart';
 import 'package:shopping/features/Layout/PresentationLayer/LayoutCubit/layout_cubit.dart';
 import 'package:shopping/bloc_observer.dart';
+import 'package:shopping/features/features/carts/presentation/bloc/carts_bloc.dart';
 import 'package:shopping/service_locator.dart' as di;
 
 void main() async {
@@ -34,6 +35,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => di.sl<HomeBloc>()..add(GetAllProducts()),
+        ),
+        BlocProvider(
+          create: (context) => di.sl<CartsBloc>()..add(GetAllCartsEvent()),
         ),
         BlocProvider(
           create: (context) => LayoutCubit(),
